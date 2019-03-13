@@ -15,8 +15,6 @@ class AddUserIdColumnToPosts extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id')->default('1');
-
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

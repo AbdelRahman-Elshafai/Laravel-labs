@@ -8,16 +8,17 @@ class Post extends Model
 {
     protected $fillable = [
         'title',
-        'description'
+        'description',
+        'user_id'
     ];
 
 
-    // public function user()
-    // {
+    public function user()
+    {
 
-    //     // return $this->belongsTo('App\User');
+        // return $this->belongsTo('App\User');
 
-    //     return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
 
-    // }
+    }
 }

@@ -58,7 +58,16 @@ class PostsController extends Controller
 
         // $post = Post::findOrFail($post);
 
-        dd($post);
+        // dd($post);
+
         return view('posts.edit'  , ['post' => $post]);
+    }
+
+
+    public function update(Post $post)
+    {
+        Post::findOrFail($post)->first()->update(request()->all());
+        return redirect()->route('posts.index');
+
     }
 }
