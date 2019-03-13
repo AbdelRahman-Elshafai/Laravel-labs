@@ -22,9 +22,15 @@
       <td>{{$post->user->name}}</td>
       <td>{{$post->created_at->format('Y-m-d')}}</td>
       <td>
+            <form action="{{route('posts.destroy' , $post->id)}}" method ="post">
+
       <a class="btn btn-primary" href="/posts/1/edit" role="button">View</a>
       <a class="btn btn-primary" href="{{route('posts.edit' , $post->id)}}" role="button">Edit</a>
-      <a class="btn btn-primary" href="{{route('posts.destroy' , $post->id)}}" onclick="return confirm('Are you sure?')" role="button">Delete</a>
+
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-primary" onclick="return confirm('Are you sure?')" >Delete</button>
+      </form>
       </td>
     </tr>
     @endforeach

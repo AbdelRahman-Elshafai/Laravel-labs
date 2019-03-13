@@ -76,6 +76,7 @@ class PostsController extends Controller
 
         Post::findOrFail($post->id)->delete();
 
+
         return redirect()->route('posts.index');
 
     }
