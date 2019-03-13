@@ -12,7 +12,7 @@
   <div class="panel-heading">Post Creator Info</div>
   <div class="panel-body">Name: {{$post->user->name}}</div>
   <div class="panel-body">Email: {{$post->user->email}}</div>
-  <div class="panel-body">Created At: {{$post->created_at->format('l jS  F Y h:i:s A')}}</div>
+  <div class="panel-body">Created At: {{$post->human_readable_date}}</div>
 </div>
 
 <a class="btn btn-primary" href="{{route('posts.index')}}" role="button">back</a>
