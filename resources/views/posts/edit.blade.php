@@ -6,7 +6,6 @@
 <form action="{{route('posts.update' , $post)}}" method ="post">
 @csrf
 @method('PUT')
-
   <div class="form-group">
     <label for="exampleInputPassword1">Title</label>
     <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Title" name = "title" value = "{{$post->title}}">
