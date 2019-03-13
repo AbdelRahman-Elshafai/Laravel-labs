@@ -26,7 +26,7 @@ class PostsController extends Controller
     {
         $users = User::all();
 
-        return view("posts.create");
+        return view("posts.create" , ["users" => $users]);
     }
 
     public function store()
@@ -66,7 +66,16 @@ class PostsController extends Controller
 
     public function update(Post $post)
     {
-        Post::findOrFail($post)->first()->update(request()->all());
+        Post::findOrFail($post->id)->update(request()->all());
+        return redirect()->route('posts.index');
+
+    }
+
+    public function destroy(Post $post)
+    {
+
+        Post::findOrFail($post->id)->delete();
+
         return redirect()->route('posts.index');
 
     }

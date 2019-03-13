@@ -15,6 +15,9 @@
     <label for="exampleInputPassword1">Description</label>
     <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Description" name = "description" value = "{{$post->description}}" >
   </div>
+  <select class="browser-default custom-select" name = "user_id">
+    <option value="{{$post->user->id}}" >{{$post->user->name}}</option>
+</select>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 @endsection

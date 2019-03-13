@@ -14,7 +14,11 @@
     <label for="exampleInputPassword1">Description</label>
     <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Description" name = "description" >
   </div>
-  
+  <select class="browser-default custom-select" name = "user_id">
+  @foreach($users as $user)
+    <option value="{{$user->id}}" >{{$user->name}}</option>
+    @endforeach
+</select>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 @endsection
