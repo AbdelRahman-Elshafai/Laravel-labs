@@ -29,6 +29,7 @@
       <a class="btn btn-primary" href="{{route('posts.edit' , $post->id)}}" role="button">Edit</a>
 
         @method('DELETE')
+        @csrf
         <button type="submit" class="btn btn-primary" onclick="return confirm('Are you sure?')" >Delete</button>
       </form>
       </td>
