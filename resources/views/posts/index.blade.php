@@ -3,7 +3,8 @@
 
 
 @section('content')
-<a href="{{route('posts.create')}}">create</a>
+<a class="btn btn-primary" href="{{route('posts.create')}}" role="button">Create</a>
+
 <table class="table">
   <thead>
     <tr>
@@ -24,10 +25,9 @@
       <td>
             <form action="{{route('posts.destroy' , $post->id)}}" method ="post">
 
-      <a class="btn btn-primary" href="/posts/1/edit" role="button">View</a>
+      <a class="btn btn-primary" href="{{route('posts.show' , $post->id)}}" role="button">View</a>
       <a class="btn btn-primary" href="{{route('posts.edit' , $post->id)}}" role="button">Edit</a>
 
-        @csrf
         @method('DELETE')
         <button type="submit" class="btn btn-primary" onclick="return confirm('Are you sure?')" >Delete</button>
       </form>
