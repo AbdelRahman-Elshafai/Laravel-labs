@@ -22,8 +22,8 @@ class PostsController extends Controller
 
     public function store(StorePostRequest $request)
     {
-        Storage::putFile('posts', $request->file('image'));
-        Post::create($request->only(['title' , 'description' , 'user_id']));
+        $path = Storage::putFile('posts', $request->file('image'));
+        Post::create($request->only(['title' , 'description' , 'user_id']) +  ["image_name" => basename($path)]);
         return redirect()->route('posts.index');
     }
 
