@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\User;
-use Illuminate\Http\Request;
 use App\Http\Requests\Post\StorePostRequest;
+use App\Http\Requests\Post\UpdatePostRequest;
 
 class PostsController extends Controller
 {
@@ -30,9 +30,9 @@ class PostsController extends Controller
         return view('posts.edit', ['post' => $post]);
     }
 
-    public function update(Post $post)
+    public function update(Post $post, UpdatePostRequest $request)
     {
-        Post::findOrFail($post->id)->update(request()->all());
+        Post::findOrFail($post->id)->update($request->all());
         return redirect()->route('posts.index');
     }
 

@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @section('edit')
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <a class="btn btn-primary" href="{{route('posts.index')}}" role="button">back</a>
 
 <form action="{{route('posts.update' , $post)}}" method ="post">
