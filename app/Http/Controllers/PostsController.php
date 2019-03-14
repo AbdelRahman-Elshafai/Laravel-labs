@@ -20,7 +20,7 @@ class PostsController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate(['title' => 'required' , 'description' => 'required']);
+        $request->validate(['title' => 'required|min:3' , 'description' => 'required']);
         Post::create($request->all());
         return redirect()->route('posts.index');
     }
