@@ -20,8 +20,8 @@ class PostsController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate(['title' => 'required' , 'description' => 'required']);
         Post::create($request->all());
-
         return redirect()->route('posts.index');
     }
 
@@ -39,8 +39,6 @@ class PostsController extends Controller
     public function destroy(Post $post)
     {
         Post::findOrFail($post->id)->delete();
-
-
         return redirect()->route('posts.index');
     }
 
