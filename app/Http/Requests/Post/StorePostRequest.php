@@ -34,7 +34,7 @@ class StorePostRequest extends FormRequest
     {
         return [
 
-            'title.required' => 'this field is required'
-        ]
+            'title.required' => 'this field is required',
+        ];
     }
 }
