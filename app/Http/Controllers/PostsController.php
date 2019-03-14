@@ -18,9 +18,9 @@ class PostsController extends Controller
         return view("posts.create", ["users" => User::all()]);
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        Post::create(request()->all());
+        Post::create($request->all());
 
         return redirect()->route('posts.index');
     }
