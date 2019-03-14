@@ -13,7 +13,7 @@
 @endif
 <a class="btn btn-primary" href="{{route('posts.index')}}" role="button">back</a>
 
-<form action="{{route('posts.update' , $post)}}" method ="post">
+<form action="{{route('posts.update' , $post)}}" method ="post" enctype="multipart/form-data">
 @csrf
 @method('PUT')
   <div class="form-group">
@@ -28,6 +28,7 @@
   <select class="browser-default custom-select" name = "user_id">
     <option value="{{$post->user->id}}" >{{$post->user->name}}</option>
 </select>
+<input type="file"  name = "image">
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 @endsection

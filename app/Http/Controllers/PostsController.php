@@ -34,7 +34,9 @@ class PostsController extends Controller
 
     public function update(Post $post, UpdatePostRequest $request)
     {
-        Post::findOrFail($post->id)->update($request->only(['title' , 'description' , 'user_id']));
+        $path = Storage::putFile('posts', $request->file('image'));
+        Post::findOrFail($post->id)->update($request->only(['title' , 'description' , 'user_id']) + ["image_name" => $path]);
+        Storage::delete($post->image_name);
         return redirect()->route('posts.index');
     }
 
