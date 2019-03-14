@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\User;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\Post\StorePostRequest;
 use App\Http\Requests\Post\UpdatePostRequest;
 
@@ -21,7 +22,7 @@ class PostsController extends Controller
 
     public function store(StorePostRequest $request)
     {
-        // dd($request->all());
+        Storage::putFile('posts', $request->file('image'));
         Post::create($request->only(['title' , 'description' , 'user_id']));
         return redirect()->route('posts.index');
     }
