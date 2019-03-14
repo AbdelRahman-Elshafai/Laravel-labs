@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.app')
 
 @section('edit')
 <a class="btn btn-primary" href="{{route('posts.index')}}" role="button">back</a>

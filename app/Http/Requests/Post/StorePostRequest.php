@@ -13,7 +13,7 @@ class StorePostRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -28,5 +28,13 @@ class StorePostRequest extends FormRequest
             , 'description' => 'required',
 
         ];
+    }
+
+    public function messages()
+    {
+        return [
+
+            'title.required' => 'this field is required'
+        ]
     }
 }
