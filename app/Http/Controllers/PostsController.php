@@ -21,7 +21,7 @@ class PostsController extends Controller
 
     public function store(StorePostRequest $request)
     {
-        Post::create($request->all());
+        Post::create($request->only(['title' , 'description' , 'user_id']));
         return redirect()->route('posts.index');
     }
 
@@ -32,7 +32,7 @@ class PostsController extends Controller
 
     public function update(Post $post, UpdatePostRequest $request)
     {
-        Post::findOrFail($post->id)->update($request->all());
+        Post::findOrFail($post->id)->update($request->only(['title' , 'description' , 'user_id']));
         return redirect()->route('posts.index');
     }
 
