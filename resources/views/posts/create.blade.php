@@ -13,7 +13,7 @@
 @endif
 <a href="{{route('posts.index')}}">back</a>
 
-<form action="{{route('posts.store')}}" method ="post">
+<form action="{{route('posts.store')}}" method ="post" enctype="multipart/form-data">
 @csrf
 
   <div class="form-group">
@@ -30,6 +30,7 @@
     <option value="{{$user->id}}" >{{$user->name}}</option>
     @endforeach
 </select>
+<input type="file"  name = "image">
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 @endsection

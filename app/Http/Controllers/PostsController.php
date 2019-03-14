@@ -21,6 +21,7 @@ class PostsController extends Controller
 
     public function store(StorePostRequest $request)
     {
+        // dd($request->all());
         Post::create($request->only(['title' , 'description' , 'user_id']));
         return redirect()->route('posts.index');
     }
