@@ -24,8 +24,8 @@ class StorePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:3'
-            , 'description' => 'required',
+            'title' => 'required|unique:posts,title|min:3'
+            , 'description' => 'required|min:10',
 
         ];
     }
@@ -34,7 +34,7 @@ class StorePostRequest extends FormRequest
     {
         return [
 
-            'title.required' => 'this field is required',
+            'title.required' => 'title field is required',
         ];
     }
 }
