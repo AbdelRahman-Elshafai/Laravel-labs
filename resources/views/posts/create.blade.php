@@ -30,7 +30,7 @@
     <option value="{{$user->id}}" >{{$user->name}}</option>
     @endforeach
 </select>
-<input type="file"  >
+<input type="file"  name = "image">
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 @endsection

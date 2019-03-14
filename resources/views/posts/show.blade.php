@@ -5,6 +5,7 @@
   <div class="panel-heading">Post Info</div>
   <div class="panel-body">Title: {{$post->title}}</div>
   <div class="panel-body">Description: {{$post->description}}</div>
+  <div class="panel-body">Image: <img src = "{{Storage::url($post->image_name)}}"></div>
 </div>
 
 
