@@ -26,6 +26,6 @@ class PostsController extends Controller
         return response()->json([
 
             'message' => 'Post Created Successfully',
-        ]);
+        ], 201);
     }
 }
