@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Post;
-
 use App\Http\Controllers\Controller;
+use App\Http\Resources\PostResource;
 
 class PostsController extends Controller
 {
     public function index()
     {
-        return Post::all();
+        $posts = Post::all();
+        return PostResource::collection($posts);
     }
 }
