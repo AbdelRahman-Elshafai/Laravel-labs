@@ -5,12 +5,27 @@ namespace App\Http\Controllers\Api;
 use App\Post;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
+use App\Http\Requests\Post\StorePostRequest;
 
 class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
-        return PostResource::collection($posts);
+        return PostResource::collection(Post::all());
+    }
+
+    public function show($post)
+    {
+        return new PostResource(Post::findOrFail($post));
+    }
+
+    public function store(StorePostRequest $request)
+    {
+        Post::create($request->all());
+
+        return response()->json([
+
+            'message' => 'Post Created Successfully',
+        ]);
     }
 }
