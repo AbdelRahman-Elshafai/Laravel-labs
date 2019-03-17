@@ -11,7 +11,7 @@ class PostsController extends Controller
 {
     public function index()
     {
-        return PostResource::collection(Post::all());
+        return PostResource::collection(Post::with('user')->paginate(1));
     }
 
     public function show($post)
