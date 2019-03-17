@@ -51,7 +51,6 @@ class LoginController extends Controller
     public function redirectToProvider($provider)
     {
         return Socialite::driver($provider)->redirect();
-        // return Socialite::driver('github')->redirect();
     }
 
     /**
@@ -61,12 +60,7 @@ class LoginController extends Controller
      */
     public function handleProviderCallback($provider)
     {
-        // $user = Socialite::driver('github')->user();
 
-
-        // return redirect()->route('posts.index');
-
-        // $user->token;
 
         try {
             $user = Socialite::driver($provider)->user();
@@ -81,7 +75,6 @@ class LoginController extends Controller
 
     public function findOrCreateUser($providerUser, $provider)
     {
-        // dd($providerUser);
         $account = SocialIdentity::whereProviderName($provider)
                    ->whereProviderId($providerUser->getId())
                    ->first();
